@@ -1,0 +1,54 @@
+spring:
+#  发送邮件 yml
+  mail:
+    host: smtp.163.com
+    # 发送者账号
+    username: qxl03590525@163.com
+    # 授权密码，非登录密码，这里的授权密码是第三方授权的密匙
+    password: JQABULBEVZKRWWQC
+
+    default-encoding: UTF-8
+
+# 数据库连接驱动，4大金刚
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/demo?characterEncoding=UTF-8
+    username: root
+    password: root123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#mapper xml 文件扫描
+  mybatis:
+    typeAliasesPackage: com.demo.pojo
+    mapperLocations: classpath:mapper/*.xml
+#    分页依赖
+    hepagehelper:
+
+      lperDialect: mysql
+
+      reasonable: true
+
+      supportMethodsArguments: true
+
+      params: count=countSql
+#  mvc 视图解析器
+  mvc:
+    view:
+      prefix: /templates/*
+      suffix: .
+      static-location: assets/**
+#  web 网页静态资源加载路径
+  web:
+    resources:
+      static-locations: file:d:/images,classpath:/META-INF/resources/,classpath:/resources/,classpath:static/,classpath:/public/
+
+#    thymeleaf:
+#      cache: false
+#服务开启的端口
+server:
+  port: 8080
+#  打印日志列表
+#logging:
+#    path=D:/data/mylog.txt
+#对应servlet 的session 过期时间
+servlet:
+  session:
+    timeout: 10s
